@@ -39,5 +39,17 @@ namespace Razor.Controllers
 
             return View(myProduct);
         }
+
+        public ActionResult DemoArray()
+        {
+            Product[] array =
+            {
+                new Product {Name = "Kajak", Price = 275M},
+                new Product {Name = "Kamizelka ratunkowa", Price = 48.95M},
+                new Product {Name = "Piłka nożna", Price = 19.50M},
+                new Product {Name = "Flaga narożna", Price = 34.95M},
+            };
+            return View(array);
+        }
     }
 }
