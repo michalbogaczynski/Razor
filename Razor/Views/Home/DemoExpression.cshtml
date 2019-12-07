@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "DemoExpresion";
+    Layout = "~/Views/_BasicLayout.cshtml";
 }
 
 <table>
@@ -11,7 +12,41 @@
     <tbody>
         <tr><td>Nazwa</td><td>@Model.Name</td></tr>
         <tr><td>Cena</td><td>@Model.Price</td></tr>
-        <tr><td>Ilość w magazynie</td><td>@ViewBag.ProductCount</td></tr>
+        <tr>
+            <td>Ilość w magazynie</td>
+            <td>
+                @if (ViewBag.ProductCount == 0)
+                {
+                    @: Brak
+                }
+                else if (ViewBag.ProductCount == 1)
+                {
+                    <b>Mało (@ViewBag.ProductCount)</b>
+                }
+                else
+                {
+                    @ViewBag.ProductCount
+                }
+
+            </td>
+        </tr>
+        @*<tr>
+            <td>Ilość w magazynie</td>
+            <td>
+            @switch ((int)ViewBag.ProductCount)
+            {
+                case 0:
+                    @: Brak
+                    break;
+                case 1:
+                    <b>Mało (@ViewBag.ProductCount)</b>
+                    break;
+                default:
+                    @ViewBag.ProductCount
+                    break;
+            }
+            </td>
+        </tr>*@
     </tbody>
 </table>
 
